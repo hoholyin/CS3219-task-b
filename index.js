@@ -6,6 +6,9 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 // Initialise the app
 const app = express()
+
+require('dotenv').config()
+
 // Configure bodyparser to handle post requests
 app.use(bodyParser.urlencoded({
     extended: true
@@ -13,7 +16,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 // Connect to Mongoose and set connection variable
-mongoose.connect('mongodb://localhost/taskb1', { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/taskb1', { useNewUrlParser: true });
 const db = mongoose.connection;
 
 if (!db) {
