@@ -8,22 +8,13 @@ const mongoose = require('mongoose');
 const app = express()
 
 require('dotenv').config()
+require('./database');
 
 // Configure bodyparser to handle post requests
 app.use(bodyParser.urlencoded({
     extended: true
 }));
 app.use(bodyParser.json());
-
-// Connect to Mongoose and set connection variable
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/taskb1', { useNewUrlParser: true });
-const db = mongoose.connection;
-
-if (!db) {
-    console.log("Error in connecting db");
-} else {
-    console.log("Db connected successfully");
-}
 
 const port = process.env.PORT || 8080
 
