@@ -9,10 +9,15 @@ console.log(process.env);
 describe("Contacts", () => {
     describe("GET /contacts", () => {
         // Test to get all contacts
-        it ("should get all contacts", async () => {
-            const res = await chai.request(app).get('/api/contacts');
-            expect(res).to.have.status(200);
-            expect(res.body).to.be.a('object');
+        it ("should get all contacts", (done) => {
+            setTimeout(done, 10000);
+            chai.request(app)
+                .get('/api/contacts')
+                .end((err, res) => {
+                    expect(res).to.have.status(200);
+                    expect(res.body).to.be.a('object');
+                    done();
+                });
         });
     });
 });
