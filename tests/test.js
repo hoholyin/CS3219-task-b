@@ -9,7 +9,6 @@ describe("Contacts", () => {
     describe("GET /contacts", () => {
         // Test to get all contacts
         it ("should get all contacts", (done) => {
-            setTimeout(done, 10000);
             chai.request(app)
                 .get('/api/contacts')
                 .end((err, res) => {
@@ -17,6 +16,6 @@ describe("Contacts", () => {
                     expect(res.body).to.be.a('object');
                     done();
                 });
-        });
+        }).timeout(10000);
     });
 });
