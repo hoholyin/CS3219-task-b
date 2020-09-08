@@ -4,6 +4,7 @@ const connection = "mongodb+srv://holyin:cs3219-task-b1@cluster0.luoag.mongodb.n
 
 function connect() {
     const isLocal = process.env.PATH.includes('local');
+    console.log('isLocal: ' + isLocal);
     console.log(process.env);
     const uri = isLocal ? localConnection : connection;
     mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false})
