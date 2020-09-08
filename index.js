@@ -8,7 +8,8 @@ const mongoose = require('mongoose');
 const app = express()
 
 require('dotenv').config()
-require('./database');
+const connect = require('./database');
+connect(process.env.LOCAL);
 
 // Configure bodyparser to handle post requests
 app.use(bodyParser.urlencoded({
