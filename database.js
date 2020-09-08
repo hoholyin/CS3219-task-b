@@ -6,7 +6,7 @@ function connect(isLocal) {
     if (!isLocal) {
         isLocal = false
     }
-    mongoose.connect(isLocal ? localConnection : connection, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false})
+    mongoose.connect(connection, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false})
         .then(() => console.log("Database Connected Successfully"))
         .catch(err => console.log(err));
 }
