@@ -43,5 +43,9 @@ The api is available at https://cs3219-task-b1.herokuapp.com/api
      - name, email, phone, gender
 - GET /api/contacts/:contact_id: Return a contact corresponding to the given id
 - PATCH /api/contacts/:contact_id: Updates a contact corresponding to the given id
+- Fields:
+     - name, email, phone, gender
 - PUT /api/contacts/:contact_id: Updates a contact corresponding to the given id
+- Fields:
+     - name, email, phone, gender
 - DELETE /api/contacts/:contact_id: Deletes a contact corresponding to the given id
