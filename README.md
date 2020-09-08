@@ -1,6 +1,7 @@
 # CS3219 Task B
 
-## (B1) Run the API locally
+## Task B1 
+### Run the API locally
 Note: These instructions are written to run the API on Mac.
 
 1. In the terminal, run the following code first configure an alias. This is because in MacOS Catalina, system files are **read-only** and 
@@ -32,3 +33,15 @@ We expect to see the following result:
 ```
 {"status":"success","message":"Contacts retrieved successfully","data":[]}
 ```
+### Accessing the deployed API
+The app is hosted on https://cs3219-task-b1.herokuapp.com/
+The api is available at https://cs3219-task-b1.herokuapp.com/api
+
+GET /api/contacts: Returns a list of contacts
+POST /api/contacts: Adds a new contact to the list
+  - Fields:
+     - name, email, phone, gender
+GET /api/contacts/:contact_id: Return a contact corresponding to the given id
+PATCH /api/contacts/:contact_id: Updates a contact corresponding to the given id
+PUT /api/contacts/:contact_id: Updates a contact corresponding to the given id
+DELETE /api/contacts/:contact_id: Deletes a contact corresponding to the given id
