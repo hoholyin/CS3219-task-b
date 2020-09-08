@@ -29,5 +29,7 @@ app.get('/', (req, res) => {
 })
 
 app.listen(process.env.PORT || port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+  console.log(`Contact app listening at port ${port}`)
 })
+
+module.exports = app;

@@ -5,13 +5,11 @@ Contact = require('./contactModel');
 exports.index = function (req, res) {
     Contact.get(function (err, contacts) {
         if (err) {
-            res.json({
-                status: "error",
+            res.status(404).json({
                 message: err,
             });
         }
-        res.json({
-            status: "success",
+        res.status(200).json({
             message: "Contacts retrieved successfully",
             data: contacts
         });
@@ -39,7 +37,7 @@ exports.view = function (req, res) {
     Contact.findById(req.params.contact_id, function (err, contact) {
         if (err)
             res.send(err);
-        res.json({
+        res.status(200).json({
             message: 'Contact details loading..',
             data: contact
         });
