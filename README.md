@@ -49,3 +49,12 @@ The api is available at https://cs3219-task-b1.herokuapp.com/api
   - Fields:
      - name, email, phone, gender
 - DELETE /api/contacts/:contact_id: Deletes a contact corresponding to the given id
+
+## Task B2
+To run tests locally:
+```
+npm test
+```
+
+To run tests via travis, just push code to the repository or press 'Restart build' in travis at this link:
+https://travis-ci.org/github/hoholyin/CS3219-task-b
