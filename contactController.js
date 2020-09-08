@@ -24,9 +24,10 @@ exports.new = function (req, res) {
     contact.phone = req.body.phone;
 // save the contact and check for errors
     contact.save(function (err) {
-        // if (err)
-        //     res.json(err);
-        res.json({
+        if (err) {
+            res.json(err);
+        }
+        res.status(200).json({
             message: 'New contact created!',
             data: contact
         });
@@ -70,7 +71,7 @@ exports.delete = function (req, res) {
     }, function (err, contact) {
         if (err)
             res.send(err);
-        res.json({
+        res.status(200).json({
             status: "success",
             message: 'Contact deleted'
         });
