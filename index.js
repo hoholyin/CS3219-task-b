@@ -9,7 +9,7 @@ const app = express()
 
 require('dotenv').config()
 const connect = require('./database');
-connect(process.env.LOCAL);
+connect();
 
 // Configure bodyparser to handle post requests
 app.use(bodyParser.urlencoded({
