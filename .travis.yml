@@ -2,5 +2,7 @@ language: node_js
 node_js:
   - "node"
 script:
+  - alias mongod="mongod --dbpath /data/db"
+  - mongod
   - npm install 
   - npm run test

@@ -4,7 +4,6 @@ app = require('../index');
 
 chai.use(chaiHttp);
 const expect = chai.expect;
-console.log(process.env);
 
 describe("Contacts", () => {
     describe("GET /contacts", () => {

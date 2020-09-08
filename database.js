@@ -4,8 +4,6 @@ const connection = "mongodb+srv://holyin:cs3219-task-b1@cluster0.luoag.mongodb.n
 
 function connect() {
     const isLocal = process.env.USER.includes('hoholyin');
-    console.log('isLocal: ' + isLocal);
-    console.log(process.env);
     const uri = isLocal ? localConnection : connection;
     mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false})
         .then(() => console.log("Database Connected Successfully"))
