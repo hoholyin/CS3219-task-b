@@ -1,4 +1,8 @@
 # CS3219 Task B
+To run the project, please install the following (Using Homebrew for Mac):
+- `node`
+- `mongoDb`
+- `nodemon`
 
 ## Task B1 
 ### Run the API locally
@@ -7,7 +11,8 @@ Note: These instructions are written to run the API on Mac.
 1. In the terminal, run the following code first configure an alias. This is because in MacOS Catalina, system files are **read-only** and 
 therefore, we cannot put our local /data/db file there
 ```
-alias mongod="sudo mongod --dbpath /Users/hoholyin/data/db"
+mkdir -p /Users/<your-usernmae>/data/db
+alias mongod="sudo mongod --dbpath /Users/<your-username>/data/db"
 ```
 
 In future runs, we can just run the following to start the Mongo Daemon:
@@ -37,18 +42,18 @@ We expect to see the following result:
 The app is hosted on https://cs3219-task-b1.herokuapp.com/
 The api is available at https://cs3219-task-b1.herokuapp.com/api
 
-- GET /api/contacts: Returns a list of contacts
-- POST /api/contacts: Adds a new contact to the list
+- `GET /api/contacts`: Returns a list of contacts
+- `POST /api/contacts`: Adds a new contact to the list
   - Fields:
      - name, email, phone, gender
-- GET /api/contacts/:contact_id: Return a contact corresponding to the given id
-- PATCH /api/contacts/:contact_id: Updates a contact corresponding to the given id
+- `GET /api/contacts/:contact_id`: Return a contact corresponding to the given id
+- `PATCH /api/contacts/:contact_id`: Updates a contact corresponding to the given id
   - Fields:
      - name, email, phone, gender
-- PUT /api/contacts/:contact_id: Updates a contact corresponding to the given id
+- `PUT /api/contacts/:contact_id`: Updates a contact corresponding to the given id
   - Fields:
      - name, email, phone, gender
-- DELETE /api/contacts/:contact_id: Deletes a contact corresponding to the given id
+- `DELETE /api/contacts/:contact_id`: Deletes a contact corresponding to the given id
 
 ## Task B2
 To run tests locally:
