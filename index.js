@@ -4,8 +4,12 @@ const express = require('express')
 const bodyParser = require('body-parser');
 // Import Mongoose
 const mongoose = require('mongoose');
+
+const cors = require('cors');
+
 // Initialise the app
 const app = express()
+app.options('*', cors());
 
 require('dotenv').config()
 const connect = require('./database');
