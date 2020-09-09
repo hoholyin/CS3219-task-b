@@ -9,7 +9,7 @@ const cors = require('cors');
 
 // Initialise the app
 const app = express()
-//app.options('*', cors());
+app.options('*', cors());
 
 require('dotenv').config()
 const connect = require('./database');
