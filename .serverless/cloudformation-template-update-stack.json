@@ -118,6 +118,23 @@
                       "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/CS3219-task-b-dev*:*:*"
                     }
                   ]
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "s3:ListBucket"
+                  ],
+                  "Resource": {
+                    "Fn::Join": [
+                      "",
+                      [
+                        "arn:aws:s3:::",
+                        {
+                          "Ref": "ServerlessDeploymentBucket"
+                        }
+                      ]
+                    ]
+                  }
                 }
               ]
             }
@@ -146,7 +163,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/CS3219-task-b/dev/1600336902413-2020-09-17T10:01:42.413Z/CS3219-task-b.zip"
+          "S3Key": "serverless/CS3219-task-b/dev/1600339317026-2020-09-17T10:41:57.026Z/CS3219-task-b.zip"
         },
         "FunctionName": "CS3219-task-b-dev-app",
         "Handler": "index.handler",
@@ -164,14 +181,14 @@
         "AppLogGroup"
       ]
     },
-    "AppLambdaVersion2uDiOKR7koUCoIksH8ngdaLu0UDUsgt8Jtq044Mw5o": {
+    "AppLambdaVersionDNCfHFvuVxHqmRdpBllRdBVopPdoq8eALTVWFic": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "AppLambdaFunction"
         },
-        "CodeSha256": "WT5UGR7yUdFYSu5zOThOr5HDcRWeoNbnzUcHvsQsZjo="
+        "CodeSha256": "xLDF4ehC1sk1WorRQMM/qTkttRu4BoxH9bfx1mLmUxU="
       }
     },
     "ApiGatewayRestApi": {
@@ -290,7 +307,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1600336900812": {
+    "ApiGatewayDeployment1600339311942": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -350,7 +367,7 @@
     "AppLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "AppLambdaVersion2uDiOKR7koUCoIksH8ngdaLu0UDUsgt8Jtq044Mw5o"
+        "Ref": "AppLambdaVersionDNCfHFvuVxHqmRdpBllRdBVopPdoq8eALTVWFic"
       }
     },
     "ServiceEndpoint": {

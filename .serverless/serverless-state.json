@@ -10,6 +10,25 @@
       "name": "aws",
       "runtime": "nodejs12.x",
       "region": "ap-southeast-1",
+      "iamRoleStatements": [
+        {
+          "Effect": "Allow",
+          "Action": [
+            "s3:ListBucket"
+          ],
+          "Resource": {
+            "Fn::Join": [
+              "",
+              [
+                "arn:aws:s3:::",
+                {
+                  "Ref": "ServerlessDeploymentBucket"
+                }
+              ]
+            ]
+          }
+        }
+      ],
       "versionFunctions": true,
       "compiledCloudFormationTemplate": {
         "AWSTemplateFormatVersion": "2010-09-09",
@@ -131,6 +150,9 @@
                             "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/CS3219-task-b-dev*:*:*"
                           }
                         ]
+                      },
+                      {
+                        "$ref": "$[\"service\"][\"provider\"][\"iamRoleStatements\"][0]"
                       }
                     ]
                   }
@@ -159,7 +181,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/CS3219-task-b/dev/1600336902413-2020-09-17T10:01:42.413Z/CS3219-task-b.zip"
+                "S3Key": "serverless/CS3219-task-b/dev/1600339317026-2020-09-17T10:41:57.026Z/CS3219-task-b.zip"
               },
               "FunctionName": "CS3219-task-b-dev-app",
               "Handler": "index.handler",
@@ -177,14 +199,14 @@
               "AppLogGroup"
             ]
           },
-          "AppLambdaVersion2uDiOKR7koUCoIksH8ngdaLu0UDUsgt8Jtq044Mw5o": {
+          "AppLambdaVersionDNCfHFvuVxHqmRdpBllRdBVopPdoq8eALTVWFic": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "AppLambdaFunction"
               },
-              "CodeSha256": "WT5UGR7yUdFYSu5zOThOr5HDcRWeoNbnzUcHvsQsZjo="
+              "CodeSha256": "xLDF4ehC1sk1WorRQMM/qTkttRu4BoxH9bfx1mLmUxU="
             }
           },
           "ApiGatewayRestApi": {
@@ -303,7 +325,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1600336900812": {
+          "ApiGatewayDeployment1600339311942": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -363,7 +385,7 @@
           "AppLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "AppLambdaVersion2uDiOKR7koUCoIksH8ngdaLu0UDUsgt8Jtq044Mw5o"
+              "Ref": "AppLambdaVersionDNCfHFvuVxHqmRdpBllRdBVopPdoq8eALTVWFic"
             }
           },
           "ServiceEndpoint": {
@@ -478,7 +500,7 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "AppLambdaVersion2uDiOKR7koUCoIksH8ngdaLu0UDUsgt8Jtq044Mw5o"
+        "versionLogicalId": "AppLambdaVersionDNCfHFvuVxHqmRdpBllRdBVopPdoq8eALTVWFic"
       }
     },
     "configValidationMode": "warn",
@@ -490,18 +512,36 @@
       "provider": {
         "name": "aws",
         "runtime": "nodejs12.x",
-        "region": "ap-southeast-1"
+        "region": "ap-southeast-1",
+        "iamRoleStatements": [
+          {
+            "Effect": "Allow",
+            "Action": [
+              "s3:ListBucket"
+            ],
+            "Resource": {
+              "Fn::Join": [
+                "",
+                [
+                  "arn:aws:s3:::",
+                  {
+                    "Ref": "ServerlessDeploymentBucket"
+                  }
+                ]
+              ]
+            }
+          }
+        ]
       },
       "package": {
         "include": [
           "*.js",
-          "package.json"
-        ],
-        "exclude": [
+          "package.json",
+          "node_modules/**",
           "**/*"
         ],
         "artifact": "/Users/hoholyin/Desktop/NUS/Y3S1/CS3219/OTOT/CS3219-task-b/.serverless/CS3219-task-b.zip",
-        "artifactDirectoryName": "serverless/CS3219-task-b/dev/1600336902413-2020-09-17T10:01:42.413Z"
+        "artifactDirectoryName": "serverless/CS3219-task-b/dev/1600339317026-2020-09-17T10:41:57.026Z"
       },
       "functions": {
         "$ref": "$[\"service\"][\"functions\"]"
@@ -511,7 +551,7 @@
     "artifact": "/Users/hoholyin/Desktop/NUS/Y3S1/CS3219/OTOT/CS3219-task-b/.serverless/CS3219-task-b.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/CS3219-task-b/dev/1600336902413-2020-09-17T10:01:42.413Z",
+    "artifactDirectoryName": "serverless/CS3219-task-b/dev/1600339317026-2020-09-17T10:41:57.026Z",
     "artifact": "CS3219-task-b.zip"
   }
 }
