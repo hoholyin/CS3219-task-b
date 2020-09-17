@@ -55,7 +55,7 @@ package:
 #    - include-me-dir/**
   exclude:
     - node_modules/** 
-    - .serverless/**
+    - venv/**
 
 functions:
   app:
