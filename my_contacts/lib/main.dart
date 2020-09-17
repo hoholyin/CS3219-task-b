@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 
 import 'Contact.dart';
+import 'DeleteRequestBuilder.dart';
 import 'GetRequestBuilder.dart';
 import 'PostRequestBuilder.dart';
 
@@ -48,8 +49,14 @@ class _MyHomePageState extends State<MyHomePage> {
   List<Contact> contacts = [];
 
   @override
-  Widget build(BuildContext context) {
+  void initState() {
+    // TODO: implement initState
+    super.initState();
     getContacts();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
@@ -60,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            SizedBox(height: 100),
+            SizedBox(height: 50),
             Text(
               'Add a new contact:'
             ),
@@ -190,7 +197,9 @@ class _MyHomePageState extends State<MyHomePage> {
             child: FlatButton(
               color: Colors.red,
               textColor: Colors.white,
-              onPressed: () {},
+              onPressed: () {
+                deleteContact(contact.id);
+              },
               child: Text('X'),
             ),
           ),
@@ -199,6 +208,14 @@ class _MyHomePageState extends State<MyHomePage> {
       newContacts.add(contactCard);
     }
     return newContacts;
+  }
+
+  void deleteContact(String id) async {
+    await DeleteRequestBuilder()
+        .addPath('contacts')
+        .addPath(id)
+        .sendRequest();
+    getContacts();
   }
 
   void addContact() async {
@@ -225,8 +242,9 @@ class _MyHomePageState extends State<MyHomePage> {
     dynamic jsonObject = json.decode(response.body);
     List<dynamic> data = jsonObject['data'];
     List<Contact> allContacts = data
-        .map((c) => new Contact(c['name'], c['email'], c['phone'], c['gender']))
+        .map((c) => new Contact(c['name'], c['email'], c['phone'], c['gender'], c['_id']))
         .toList();
+    allContacts.sort((a, b) => a.name.compareTo(b.name));
     setState(() {
       contacts = allContacts;
     });
