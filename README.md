@@ -89,3 +89,4 @@ cd my_contacts
 flutter run -d chrome
 ```
 The MyContacts web app should launch in a chrome browser shortly.
+<a href="url"><img src="https://github.com/hoholyin/CS3219-task-b/blob/master/my_contacts/screenshots/MyContacts.png" align="center" height="600"></a>
