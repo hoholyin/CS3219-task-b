@@ -3,6 +3,7 @@ node_js:
 - node
 script:
 - npm install
+- npm install -g serverless
 - npm run test
 - sls deploy
 dist: xenial
