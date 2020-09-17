@@ -73,3 +73,19 @@ The app is hosted on https://dfd4c1ml8g.execute-api.ap-southeast-1.amazonaws.com
 
 The api is available at https://dfd4c1ml8g.execute-api.ap-southeast-1.amazonaws.com/dev/api
 
+## Task B4
+- Make sure to have the latest version of `flutter` installed.
+- We have to configure flutter web by running the following script provided:
+```
+bash setup_flutter.sh
+```
+- If this doesn't work, follow the installation instructions for flutter web here, under the 'Set-up' section: https://flutter.dev/docs/get-started/web
+- To run the frontend Single Page Application, from the root directory, enter the `/my_contacts` directory 
+```
+cd my_contacts
+```
+- Run the following command:
+```
+flutter run -d chrome
+```
+The MyContacts web app should launch in a chrome browser shortly.
