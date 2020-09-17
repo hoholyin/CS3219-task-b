@@ -1,20 +1,28 @@
 language: node_js
 node_js:
-  - "node"
+- node
+deploy:
+  provider: lambda
+  function_name: contacts-app
+  region: us-east-1
+  role: arn:aws:iam::0123456789012:role/lambda_basic_execution
+  runtime: nodejs4.3
+  handler_name: handler
 script:
-  - npm install 
-  - npm run test
+- npm install
+- npm run test
 dist: xenial
 os: linux
 services:
-  - mongodb
+- mongodb
 env:
   global:
-    - MONGODB_VERSION=2.6.10
+  - MONGODB_VERSION=2.6.10
+  - secure: KtblDmwK7D7s/oAbO/glzseFd+dJtmBONYfinCJltBCckiVl2FvQ07c2OxysYCUuBSINeEAUIBz5c4UgigdyVWsKoO2zNPrn+Yg3nGBTyHy8jnc/LvY+jfqqSc147dDFxhnZFnQpIAVw5DRTEaGC3ge9WD3trDJ+W7RWAXgQq7THaPgC+ziw3aXQ033CoMTRU6RMEBNB82p9VicS9F/TJx68tj0uGyfS1ZFjDzwTqaeJGyThEToRqfXR7k3LIed2jsLH45rjAk8fmCU3thfqw3w+m+YPHwHHRKMCwvbTy/wQj0pa9GaiTzJQ5Y9ss2G0fr1BvlF4jxOo8Zqc+0thL3ZY/vdD3JF3WsdIjKSteIJ6nPVhrhVFBF/X1NeXGxFdhOGd4oCUXoMpO8pYgP+HmeuLrEh6kLDwHo+bzHmee8ccRAzVWA7hvswSMf47jTYQL9iaLJkc81t0JGlG7egwfnbOaBKQf6s462p4KczUd1Sx24e6I2MZEu63of41r1FKvguIHLRYLhiV2fYAyY3/2reDQDxmH2dzUSuSfIlD84+rJD7SEyOQKuBDWlLnHtRGxQ78ldmN1OGy3wD/Iwo+uHmJ/eJ1quGynprM25M89jN0rK/qelTpCRT9NNK9sEblrl4YXhSbh8gxLDhHQAfB/6mwQc6ou1xaUVkxgWTnrkk=
 before_install:
-  - wget http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-$MONGODB_VERSION.tgz
-  - tar xfz mongodb-linux-x86_64-$MONGODB_VERSION.tgz
-  - export PATH=`pwd`/mongodb-linux-x86_64-$MONGODB_VERSION/bin:$PATH
-  - mkdir -p data/db
-  - mongod --dbpath=data/db &
-  - sleep 3
+- wget http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-$MONGODB_VERSION.tgz
+- tar xfz mongodb-linux-x86_64-$MONGODB_VERSION.tgz
+- export PATH=`pwd`/mongodb-linux-x86_64-$MONGODB_VERSION/bin:$PATH
+- mkdir -p data/db
+- mongod --dbpath=data/db &
+- sleep 3
