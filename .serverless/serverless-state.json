@@ -159,7 +159,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/CS3219-task-b/dev/1600335011994-2020-09-17T09:30:11.994Z/CS3219-task-b.zip"
+                "S3Key": "serverless/CS3219-task-b/dev/1600335351564-2020-09-17T09:35:51.564Z/CS3219-task-b.zip"
               },
               "FunctionName": "CS3219-task-b-dev-app",
               "Handler": "index.handler",
@@ -303,7 +303,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1600335008929": {
+          "ApiGatewayDeployment1600335348323": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -494,10 +494,11 @@
       },
       "package": {
         "exclude": [
-          "node_modules/**"
+          "node_modules/**",
+          ".serverless/**"
         ],
         "artifact": "/Users/hoholyin/Desktop/NUS/Y3S1/CS3219/OTOT/CS3219-task-b/.serverless/CS3219-task-b.zip",
-        "artifactDirectoryName": "serverless/CS3219-task-b/dev/1600335011994-2020-09-17T09:30:11.994Z"
+        "artifactDirectoryName": "serverless/CS3219-task-b/dev/1600335351564-2020-09-17T09:35:51.564Z"
       },
       "functions": {
         "$ref": "$[\"service\"][\"functions\"]"
@@ -507,7 +508,7 @@
     "artifact": "/Users/hoholyin/Desktop/NUS/Y3S1/CS3219/OTOT/CS3219-task-b/.serverless/CS3219-task-b.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/CS3219-task-b/dev/1600335011994-2020-09-17T09:30:11.994Z",
+    "artifactDirectoryName": "serverless/CS3219-task-b/dev/1600335351564-2020-09-17T09:35:51.564Z",
     "artifact": "CS3219-task-b.zip"
   }
 }

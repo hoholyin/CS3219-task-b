@@ -55,7 +55,7 @@ package:
 #    - include-me-dir/**
   exclude:
     - node_modules/** 
-#    - exclude-me-dir/**
+    - .serverless/**
 
 functions:
   app:
