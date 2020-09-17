@@ -40,6 +40,7 @@ We expect to see the following result:
 ```
 ### Accessing the deployed API
 The app is hosted on https://cs3219-task-b1.herokuapp.com/
+
 The api is available at https://cs3219-task-b1.herokuapp.com/api
 
 - `GET /api/contacts`: Returns a list of contacts
@@ -64,3 +65,11 @@ npm test
 
 To run tests via travis, just push code to the repository or press 'Restart build' in travis at this link:
 https://travis-ci.org/github/hoholyin/CS3219-task-b
+
+## Task B3
+Travis will automatically deploy the app to AWS Lambda using `severless`.
+
+The app is hosted on https://dfd4c1ml8g.execute-api.ap-southeast-1.amazonaws.com/dev/
+
+The api is available at https://dfd4c1ml8g.execute-api.ap-southeast-1.amazonaws.com/dev/api
+
