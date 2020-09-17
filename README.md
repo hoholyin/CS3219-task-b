@@ -46,6 +46,7 @@ The api is available at https://cs3219-task-b1.herokuapp.com/api
 - `POST /api/contacts`: Adds a new contact to the list
   - Fields:
      - name, email, phone, gender
+  - Returns a data object with the details of the contact and the assigned contact id
 - `GET /api/contacts/:contact_id`: Return a contact corresponding to the given id
 - `PATCH /api/contacts/:contact_id`: Updates a contact corresponding to the given id
   - Fields:
