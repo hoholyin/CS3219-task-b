@@ -50,12 +50,12 @@ provider:
 
 # you can add packaging information here
 package:
-#  include:
-#    - include-me.js
+  include:
+    - '*.js'
+    - 'package.json'
 #    - include-me-dir/**
   exclude:
-    - node_modules/** 
-    - venv/**
+    - '**/*'
 
 functions:
   app:
