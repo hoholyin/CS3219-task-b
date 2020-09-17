@@ -1,16 +1,10 @@
 language: node_js
 node_js:
 - node
-deploy:
-  provider: lambda
-  function_name: contacts-app
-  region: us-east-1
-  role: arn:aws:iam::0123456789012:role/lambda_basic_execution
-  runtime: nodejs4.3
-  handler_name: handler
 script:
 - npm install
 - npm run test
+- sls deploy
 dist: xenial
 os: linux
 services:

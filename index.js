@@ -4,6 +4,7 @@ const express = require('express')
 const bodyParser = require('body-parser');
 // Import Mongoose
 const mongoose = require('mongoose');
+const serverless = require('serverless-http');
 
 const cors = require('cors');
 
@@ -37,3 +38,4 @@ app.listen(process.env.PORT || port, () => {
 })
 
 module.exports = app;
+module.exports.handler = serverless(app);
